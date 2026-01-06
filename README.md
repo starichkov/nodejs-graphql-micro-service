@@ -1,3 +1,6 @@
+[![Author](https://img.shields.io/badge/Author-Vadim%20Starichkov-blue?style=for-the-badge)](https://github.com/starichkov)
+[![GitHub License](https://img.shields.io/github/license/starichkov/nodejs-graphql-micro-service?style=for-the-badge)](https://github.com/starichkov/nodejs-graphql-micro-service/blob/main/LICENSE.md)
+
 # Computer Parts Shop - GraphQL Micro-service
 
 This project is a showcase of a standard way to implement a micro-service using Node.js, GraphQL, and MongoDB, themed as a Computer Parts Shop. It is designed to be educational, with clear code structure and comprehensive documentation.
