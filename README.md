@@ -12,6 +12,7 @@ This project is a showcase of a standard way to implement a micro-service using 
 - **MongoDB**: NoSQL database for data persistence.
 - **Mongoose**: Elegant MongoDB object modeling for Node.js.
 - **Docker**: Containerized environment for easy deployment and development.
+- **Testing**: Integration tests using [Testcontainers](https://testcontainers.com/) and [Jest](https://jestjs.io/).
 - **Educational**: Code is thoroughly documented with comments explaining the "why" and "how".
 
 ## Prerequisites
@@ -49,14 +50,49 @@ If you prefer to run it locally without Docker, you'll need a MongoDB instance r
     npm run dev
     ```
 
+## Testing
+
+The project includes both **unit** and **integration** tests to ensure high code quality and reliability.
+
+### Integration Testing with Testcontainers
+We use real MongoDB instances running in Docker containers for integration tests, thanks to **Testcontainers**. This ensures that the tests are as close to reality as possible, covering:
+- Connecting to a containerized MongoDB.
+- Starting the GraphQL server on a random port.
+- Executing mutations to add, update, and remove data.
+- Executing queries to fetch data and verifying the results.
+- Handling of error scenarios (e.g., fetching non-existent items).
+
+To run the tests, make sure you have Docker running and execute:
+```bash
+npm test
+```
+
+### Unit Testing
+We also use unit tests with mocks (using Jest) to cover:
+- Database connection branching and error handling (`tests/db.test.js`).
+- Server startup configurations (`tests/index.test.js`).
+- Business logic error handling in GraphQL resolvers (`tests/resolvers.test.js`).
+
+### Code Coverage
+We use Jest's built-in coverage tool to ensure our code is well-tested. We have set minimum coverage requirements (thresholds) to maintain high code quality:
+- **Statements/Lines/Functions**: 80%
+- **Branches**: 60%
+
+To run tests with a coverage report:
+```bash
+npm run test:coverage
+```
+This will generate a `coverage/` directory with a detailed HTML report (available at `coverage/lcov-report/index.html`).
+
 ## Project Structure
 
-- `src/index.js`: Entry point of the application.
+- `src/index.js`: Entry point of the application, handles server startup.
 - `src/db.js`: Database connection logic.
-- `src/schema.graphql`: GraphQL schema definition in its native format.
+- `src/schema.graphql`: GraphQL schema definition.
 - `src/schema.js`: Utility to load the GraphQL schema file.
 - `src/resolvers.js`: GraphQL resolvers (business logic).
 - `src/models/`: Mongoose models for MongoDB.
+- `tests/`: Test suite containing both unit and integration tests.
 - `.gitignore`: Specifies intentionally untracked files that Git should ignore.
 - `.env.example`: A template for environment variables.
 
@@ -95,8 +131,9 @@ query GetParts {
 
 ## Educational Notes
 
+- **Comprehensive Testing Strategy**: We use a combination of unit and integration tests. While integration tests with Testcontainers provide the highest confidence, unit tests allow us to easily cover edge cases and error handling paths that are difficult to trigger in a real environment.
 - **Separation of Concerns**: The project is structured to separate data modeling (Mongoose), API definitions (GraphQL Schema), and business logic (Resolvers).
-- **Native GraphQL Files**: The schema is stored in a `.graphql` file rather than a JavaScript string. This provides better readability, syntax highlighting in IDEs, and a clear separation between code and API definitions.
-- **Environment Configuration**: We use `dotenv` to manage configuration via environment variables, which is a best practice for micro-services.
-- **Containerization**: The `Dockerfile` and `docker-compose.yml` provide a reproducible environment, ensuring the service runs the same way everywhere.
-- **Git and Environment Hygiene**: We use `.gitignore` to keep the repository clean of dependencies, environment secrets, and IDE-specific files. The `.env.example` file provides a safe template for others to set up their environment without exposing sensitive data.
+- **Native GraphQL Files**: The schema is stored in a `.graphql` file rather than a JavaScript string for better readability and IDE support.
+- **Environment Configuration**: We use `dotenv` to manage configuration via environment variables.
+- **Containerization**: The `Dockerfile` and `docker-compose.yml` provide a reproducible environment.
+- **Code Coverage Thresholds**: We enforce minimum coverage requirements to ensure that new changes don't lower the quality of our testing.
