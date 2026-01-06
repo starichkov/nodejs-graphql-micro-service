@@ -1,5 +1,7 @@
 [![Author](https://img.shields.io/badge/Author-Vadim%20Starichkov-blue?style=for-the-badge)](https://github.com/starichkov)
 [![GitHub License](https://img.shields.io/github/license/starichkov/nodejs-graphql-micro-service?style=for-the-badge)](https://github.com/starichkov/nodejs-graphql-micro-service/blob/main/LICENSE.md)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/starichkov/nodejs-graphql-micro-service/ci.yml?style=for-the-badge)](https://github.com/starichkov/nodejs-graphql-micro-service/actions/workflows/ci.yml)
+[![Codecov](https://img.shields.io/codecov/c/github/starichkov/nodejs-graphql-micro-service?style=for-the-badge)](https://codecov.io/gh/starichkov/nodejs-graphql-micro-service)
 
 # Computer Parts Shop - GraphQL Micro-service
 
@@ -13,6 +15,7 @@ This project is a showcase of a standard way to implement a micro-service using 
 - **Mongoose**: Elegant MongoDB object modeling for Node.js.
 - **Docker**: Containerized environment for easy deployment and development.
 - **Testing**: Integration tests using [Testcontainers](https://testcontainers.com/) and [Jest](https://jestjs.io/).
+- **CI/CD**: Automated testing with GitHub Actions across multiple Node.js versions.
 - **Educational**: Code is thoroughly documented with comments explaining the "why" and "how".
 
 ## Prerequisites
@@ -137,3 +140,5 @@ query GetParts {
 - **Environment Configuration**: We use `dotenv` to manage configuration via environment variables.
 - **Containerization**: The `Dockerfile` and `docker-compose.yml` provide a reproducible environment.
 - **Code Coverage Thresholds**: We enforce minimum coverage requirements to ensure that new changes don't lower the quality of our testing.
+- **Continuous Integration (CI)**: We use GitHub Actions to automatically run our test suite on every push and pull request. This ensures that new changes don't break existing functionality and that the code meets our coverage thresholds across all supported Node.js LTS versions.
+- **Code Coverage Reporting**: We push our coverage reports to Codecov from our CI pipeline. This allows us to track coverage over time and visualize which parts of the codebase are tested. We only push coverage from the latest Node.js LTS version (v24) to avoid redundant uploads and maintain a consistent "main" report.
