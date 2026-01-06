@@ -1,0 +1,25 @@
+type Part {
+  id: ID!
+  name: String!
+  category: String!
+  price: Float!
+  stock: Int!
+  description: String
+  createdAt: String
+}
+
+type Query {
+  "Fetch all computer parts from the database"
+  parts: [Part]
+  "Fetch a single computer part by its ID"
+  part(id: ID!): Part
+}
+
+type Mutation {
+  "Add a new computer part"
+  addPart(name: String!, category: String!, price: Float!, stock: Int!, description: String): Part
+  "Update an existing computer part"
+  updatePart(id: ID!, name: String, category: String, price: Float, stock: Int, description: String): Part
+  "Remove a computer part by ID"
+  removePart(id: ID!): Part
+}
