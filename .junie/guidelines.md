@@ -16,8 +16,11 @@ This project is a micro-service implemented using **Node.js**, **GraphQL**, and 
   - `index.test.js`: Unit tests for server startup.
   - `resolvers.test.js`: Unit tests for resolver business logic.
   - `integration.test.js`: Integration tests using Testcontainers.
-- `docs/`: Project documentation.
+- `docs/`: Supplementary documentation (tutorials) in Markdown format.
+- `scripts/`: Utility scripts for development and documentation.
+  - `fix-docs-title.js`: Customizes JSDoc output titles.
 - `Dockerfile` & `docker-compose.yml`: Containerization configuration.
+- `jsdoc.json`: Configuration for JSDoc documentation generation.
 
 ## Testing Guidelines
 
@@ -33,8 +36,25 @@ This project is a micro-service implemented using **Node.js**, **GraphQL**, and 
 
 - **Node.js Version**: The project requires Node.js v20 or higher (ES Modules).
 - **Local Development**: Use `npm run dev` to start the server with `nodemon` for automatic restarts.
+- **Production Start**: Use `npm start` to run the application in production mode.
 - **Docker**: Use `docker-compose up --build` to run the entire stack (App + MongoDB).
 - **Environment Variables**: Use a `.env` file (see `.env.example`) for configuration like `MONGODB_URI` and `PORT`.
+
+## Documentation
+
+- **JSDoc**: Use JSDoc for documenting JavaScript files.
+- **Generation**: Use `npm run docs` to generate the documentation.
+  - This runs JSDoc based on `jsdoc.json` and then executes `scripts/fix-docs-title.js`.
+  - Output is generated in the `out-docs/` directory.
+- **Tutorials**: The `docs/` folder contains Markdown files that are included as tutorials in the generated JSDoc.
+- **Deployment**: Documentation is automatically deployed to GitHub Pages when changes are pushed to `main` branch (triggered by changes in `docs/**`, `README.md`, or the workflow file).
+
+## CI/CD
+
+- **GitHub Actions**: 
+  - `ci.yml`: Runs tests on every push and pull request to `main` for Node.js versions 20, 22, and 24.
+  - `deploy-docs.yml`: Deploys generated documentation to GitHub Pages.
+- **Code Coverage**: Coverage reports are uploaded to Codecov for Node.js v24 builds.
 
 ## Coding Standards
 

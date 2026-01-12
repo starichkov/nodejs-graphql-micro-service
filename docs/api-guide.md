@@ -16,7 +16,7 @@ Represents a computer part in the catalog.
 
 - `id`: Unique identifier (UUID).
 - `name`: Name of the part.
-- `category`: Category (e.g., CPU, GPU, RAM).
+- `category`: Category. Supported values: `CPU`, `GPU`, `RAM`, `Motherboard`, `Storage`, `Power Supply`, `Case`, `Cooling`, `Peripherals`.
 - `price`: Price in USD.
 - `stock`: Current quantity in stock.
 - `description`: Optional detailed description.

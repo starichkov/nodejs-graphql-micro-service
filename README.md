@@ -175,16 +175,16 @@ All code is released under permissive open-source licenses. The legal structure 
 
 ## 📄 License & Attribution
 
-This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/starichkov/nodejs-simple-notes-app/blob/main/LICENSE.md) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/starichkov/nodejs-graphql-micro-service/blob/main/LICENSE.md) file for details.
 
 ### Using This Project?
 
 If you use this code in your own projects, attribution is required under the MIT License:
 
 ```
-Based on nodejs-simple-notes-app by Vadim Starichkov, TemplateTasks
+Based on nodejs-graphql-micro-service by Vadim Starichkov, TemplateTasks
 
-https://github.com/starichkov/nodejs-simple-notes-app
+https://github.com/starichkov/nodejs-graphql-micro-service
 ```
 
 **Copyright © 2026 Vadim Starichkov, TemplateTasks**
