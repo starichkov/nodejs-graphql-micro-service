@@ -2,7 +2,6 @@
 [![GitHub License](https://img.shields.io/github/license/starichkov/nodejs-graphql-micro-service?style=for-the-badge)](https://github.com/starichkov/nodejs-graphql-micro-service/blob/main/LICENSE.md)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/starichkov/nodejs-graphql-micro-service/ci.yml?style=for-the-badge)](https://github.com/starichkov/nodejs-graphql-micro-service/actions/workflows/ci.yml)
 [![Codecov](https://img.shields.io/codecov/c/github/starichkov/nodejs-graphql-micro-service?style=for-the-badge)](https://codecov.io/gh/starichkov/nodejs-graphql-micro-service)
-[![Documentation](https://img.shields.io/badge/Documentation-GitHub%20Pages-brightgreen?style=for-the-badge)](https://starichkov.github.io/nodejs-graphql-micro-service/)
 
 # Computer Parts Shop - GraphQL Micro-service
 
@@ -165,3 +164,27 @@ query GetParts {
     > 2. Under **Build and deployment > Source**, select **GitHub Actions**.
     >
     > This manual step is required because standard security tokens in CI/CD pipelines lack the administrative permissions to enable this feature automatically. If you see a **"Get Pages site failed"** error or if the deployment is stuck with a **"deployment_queued"** status in your Actions, this misconfiguration is the most likely reason.
+
+## 🧾 About TemplateTasks
+
+TemplateTasks is a personal software development initiative by Vadim Starichkov, focused on sharing open-source libraries, services, and technical demos.
+
+It operates independently and outside the scope of any employment.
+
+All code is released under permissive open-source licenses. The legal structure may evolve as the project grows.
+
+## 📄 License & Attribution
+
+This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/starichkov/nodejs-simple-notes-app/blob/main/LICENSE.md) file for details.
+
+### Using This Project?
+
+If you use this code in your own projects, attribution is required under the MIT License:
+
+```
+Based on nodejs-simple-notes-app by Vadim Starichkov, TemplateTasks
+
+https://github.com/starichkov/nodejs-simple-notes-app
+```
+
+**Copyright © 2026 Vadim Starichkov, TemplateTasks**
