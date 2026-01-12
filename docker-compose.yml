@@ -10,7 +10,7 @@ services:
     restart: always
 
   mongodb:
-    image: mongo:latest
+    image: mongo:8.0.17-noble
     ports:
       - "27017:27017"
     volumes:

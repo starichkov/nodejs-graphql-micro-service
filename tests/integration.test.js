@@ -21,7 +21,7 @@ describe('GraphQL API Integration Tests', () => {
    */
   beforeAll(async () => {
     // 1. Start MongoDB Container using GenericContainer for simplicity
-    mongodbContainer = await new GenericContainer('mongo:latest')
+    mongodbContainer = await new GenericContainer('mongo:8.0.17-noble')
       .withExposedPorts(27017)
       .withWaitStrategy(Wait.forListeningPorts())
       .start();
