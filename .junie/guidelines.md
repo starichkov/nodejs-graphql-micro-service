@@ -34,7 +34,7 @@ This project is a micro-service implemented using **Node.js**, **GraphQL**, and 
 
 ## Development and Build
 
-- **Node.js Version**: The project requires Node.js v20 or higher (ES Modules).
+- **Node.js Version**: The project requires Node.js v22 or higher (ES Modules).
 - **Local Development**: Use `npm run dev` to start the server with `nodemon` for automatic restarts.
 - **Production Start**: Use `npm start` to run the application in production mode.
 - **Docker**: Use `docker-compose up --build` to run the entire stack (App + MongoDB).

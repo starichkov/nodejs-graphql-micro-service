@@ -21,7 +21,7 @@ This project is a showcase of a standard way to implement a micro-service using 
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (v20 or higher recommended)
+- [Node.js](https://nodejs.org/) (v22 or higher recommended)
 - [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 
 ## Getting Started
@@ -156,7 +156,7 @@ query GetParts {
 - **Environment Configuration**: We use `dotenv` to manage configuration via environment variables.
 - **Containerization**: The `Dockerfile` and `docker-compose.yml` provide a reproducible environment.
 - **Code Coverage Thresholds**: We enforce minimum coverage requirements to ensure that new changes don't lower the quality of our testing.
-- **Continuous Integration (CI)**: We use GitHub Actions to automatically run our test suite on every push and pull request. This ensures that new changes don't break existing functionality and that the code meets our coverage thresholds across all supported Node.js LTS versions (v20, v22, and v24). Note that Node.js 18 is no longer supported as it has reached End-of-Life (EOL) and some of our modern dependencies (like Apollo Server 5 and Mongoose 9) require Node.js 20 or higher.
+- **Continuous Integration (CI)**: We use GitHub Actions to automatically run our test suite on every push and pull request. This ensures that new changes don't break existing functionality and that the code meets our coverage thresholds across all supported Node.js LTS versions (v22 and v24). Note that Node.js v18 and v20 are no longer supported as they have reached End-of-Life (EOL).
 - **Code Coverage Reporting**: We push our coverage reports to Codecov from our CI pipeline. This allows us to track coverage over time and visualize which parts of the codebase are tested. We only push coverage from the latest Node.js LTS version (v24) to avoid redundant uploads and maintain a consistent "main" report.
  - **Project Documentation**: We provide an in-depth [manual and guide](https://starichkov.github.io/nodejs-graphql-micro-service/) using GitHub Pages. This documentation goes beyond the README to explain the architectural decisions, API design, and testing strategies in detail, serving as a comprehensive learning resource.
     > **⚠️ IMPORTANT:** For GitHub Pages to work in your own fork, you **must** manually enable it in the repository settings:
