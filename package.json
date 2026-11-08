@@ -52,9 +52,13 @@
     "mongoose": "^9.6.2"
   },
   "devDependencies": {
-    "jest": "^30.4.2",
+    "jest": "^30.5.2",
     "jsdoc": "^4.0.5",
     "nodemon": "^3.1.14",
-    "testcontainers": "^11.14.0"
+    "testcontainers": "^12.2.1"
+  },
+  "overrides": {
+    "glob": "~14.0.4",
+    "minimatch": "~11.0.5"
   }
 }
