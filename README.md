@@ -21,7 +21,7 @@ This project is a showcase of a standard way to implement a micro-service using 
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (v22 or higher recommended)
+- [Node.js](https://nodejs.org/) (v26 recommended; v22 or higher supported)
 - [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 
 ## Getting Started
@@ -89,7 +89,7 @@ npm run test:coverage
 This will generate a `coverage/` directory with a detailed HTML report (available at `coverage/lcov-report/index.html`).
 
 ### Testing against different Node.js versions locally
-To ensure compatibility across different Node.js versions without changing your local environment, you can use Docker. For example, to run tests against Node.js 20:
+To ensure compatibility across different Node.js versions without changing your local environment, you can use Docker. For example, to run tests against Node.js 26:
 
 ```bash
 docker run --rm \
@@ -97,7 +97,7 @@ docker run --rm \
   -v $(pwd):/usr/src/app \
   -v /usr/src/app/node_modules \
   -w /usr/src/app \
-  node:20-alpine \
+  node:26-alpine \
   sh -c "npm install && npm test"
 ```
 
@@ -156,8 +156,8 @@ query GetParts {
 - **Environment Configuration**: We use `dotenv` to manage configuration via environment variables.
 - **Containerization**: The `Dockerfile` and `docker-compose.yml` provide a reproducible environment.
 - **Code Coverage Thresholds**: We enforce minimum coverage requirements to ensure that new changes don't lower the quality of our testing.
-- **Continuous Integration (CI)**: We use GitHub Actions to automatically run our test suite on every push and pull request. This ensures that new changes don't break existing functionality and that the code meets our coverage thresholds across all supported Node.js LTS versions (v22 and v24). Note that Node.js v18 and v20 are no longer supported as they have reached End-of-Life (EOL).
-- **Code Coverage Reporting**: We push our coverage reports to Codecov from our CI pipeline. This allows us to track coverage over time and visualize which parts of the codebase are tested. We only push coverage from the latest Node.js LTS version (v24) to avoid redundant uploads and maintain a consistent "main" report.
+- **Continuous Integration (CI)**: We use GitHub Actions to automatically run our test suite on every push and pull request. This ensures that new changes don't break existing functionality and that the code meets our coverage thresholds across all supported Node.js LTS versions (v22, v24, and v26).
+- **Code Coverage Reporting**: We push our coverage reports to Codecov from our CI pipeline. This allows us to track coverage over time and visualize which parts of the codebase are tested. We only push coverage from the latest Node.js LTS version (v26) to avoid redundant uploads and maintain a consistent "main" report.
  - **Project Documentation**: We provide an in-depth [manual and guide](https://starichkov.github.io/nodejs-graphql-micro-service/) using GitHub Pages. This documentation goes beyond the README to explain the architectural decisions, API design, and testing strategies in detail, serving as a comprehensive learning resource.
     > **⚠️ IMPORTANT:** For GitHub Pages to work in your own fork, you **must** manually enable it in the repository settings:
     > 1. Go to **Settings > Pages**.

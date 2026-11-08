@@ -34,7 +34,7 @@ This project is a micro-service implemented using **Node.js**, **GraphQL**, and 
 
 ## Development and Build
 
-- **Node.js Version**: The project requires Node.js v22 or higher (ES Modules).
+- **Node.js Version**: The project uses Node.js v26 as its primary runtime and requires Node.js v22 or higher (ES Modules).
 - **Local Development**: Use `npm run dev` to start the server with `nodemon` for automatic restarts.
 - **Production Start**: Use `npm start` to run the application in production mode.
 - **Docker**: Use `docker-compose up --build` to run the entire stack (App + MongoDB).
@@ -52,9 +52,9 @@ This project is a micro-service implemented using **Node.js**, **GraphQL**, and 
 ## CI/CD
 
 - **GitHub Actions**: 
-  - `ci.yml`: Runs tests on every push and pull request to `main` for Node.js versions 20, 22, and 24.
+  - `ci.yml`: Runs tests on every push and pull request to `main` for Node.js versions 22, 24, and 26.
   - `deploy-docs.yml`: Deploys generated documentation to GitHub Pages.
-- **Code Coverage**: Coverage reports are uploaded to Codecov for Node.js v24 builds.
+- **Code Coverage**: Coverage reports are uploaded to Codecov for Node.js v26 builds.
 
 ## Coding Standards
 

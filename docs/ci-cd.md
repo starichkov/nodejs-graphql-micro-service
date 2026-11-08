@@ -8,9 +8,9 @@ Our CI workflow (defined in `.github/workflows/ci.yml`) is triggered on every pu
 
 ### Cross-Version Testing
 We test our service against all currently supported Node.js LTS versions:
-- **Node.js 20**
 - **Node.js 22**
 - **Node.js 24**
+- **Node.js 26**
 
 This ensures that our dependencies and code are compatible with different environments.
 
@@ -19,7 +19,7 @@ This ensures that our dependencies and code are compatible with different enviro
 2. **Setup Node.js**: Install the specific Node.js version and cache dependencies.
 3. **Install**: Run `npm ci` for a clean, reproducible installation.
 4. **Test**: Run the full test suite (`npm test`), including integration tests with Testcontainers.
-5. **Coverage**: If the tests pass on the "main" version (Node.js 24), the coverage report is uploaded.
+5. **Coverage**: If the tests pass on the "main" version (Node.js 26), the coverage report is uploaded.
 
 ## Code Coverage with Codecov
 

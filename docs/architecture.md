@@ -29,7 +29,7 @@ This micro-service follows a clean and modular architecture, separating concerns
 
 The project leverages the latest versions of industry-standard libraries to ensure a modern and secure codebase:
 
-- **Node.js 20+**: Using the latest Long-Term Support (LTS) versions for better performance and modern features like native `fetch`.
+- **Node.js 22+**: Using the latest Long-Term Support (LTS) versions for better performance and modern features like native `fetch`, with Node.js 26 as the primary runtime.
 - **Apollo Server 5**: The most recent version of the popular GraphQL server, offering improved performance and a more streamlined API.
 - **Mongoose 9**: Leveraging the latest version of the MongoDB ODM for advanced schema validation and modern MongoDB feature support.
 - **Testcontainers 11**: Using real Docker containers for integration tests to provide maximum reliability.
