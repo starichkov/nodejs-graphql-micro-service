@@ -1,9 +1,11 @@
 import { jest, describe, it, expect, afterEach } from '@jest/globals';
 import mongoose from 'mongoose';
+import { fileURLToPath } from 'url';
 
 // Mock connectDB to avoid actual database connection
+const connectDB = jest.fn().mockResolvedValue(undefined);
 jest.unstable_mockModule('../src/db.js', () => ({
-  default: jest.fn().mockResolvedValue(undefined)
+  default: connectDB
 }));
 
 // We need to use dynamic import after mocking
@@ -54,6 +56,29 @@ describe('Server Entry Point', () => {
         } else {
             throw e;
         }
+    }
+  });
+
+  it('should log an error and exit when direct startup fails', async () => {
+    const originalArgv = process.argv[1];
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const exitSpy = jest.spyOn(process, 'exit').mockImplementation(() => undefined);
+    connectDB.mockRejectedValueOnce(new Error('Connection failed'));
+    process.argv[1] = fileURLToPath(new URL('../src/index.js', import.meta.url));
+
+    try {
+      await import('../src/index.js?direct-execution-test');
+      await new Promise((resolve) => setImmediate(resolve));
+
+      expect(consoleSpy).toHaveBeenCalledWith(
+        'Failed to start server:',
+        expect.objectContaining({ message: 'Connection failed' })
+      );
+      expect(exitSpy).toHaveBeenCalledWith(1);
+    } finally {
+      process.argv[1] = originalArgv;
+      consoleSpy.mockRestore();
+      exitSpy.mockRestore();
     }
   });
 });
